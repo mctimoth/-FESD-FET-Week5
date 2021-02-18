@@ -1,0 +1,146 @@
+<!--
+    index.html
+    Created by Tim Gibney
+    2/14/2021
+    FESD-FET-Week5
+-->
+
+<!--
+1.	Using any of the tools you’ve worked with so far, create a game of tic-tac-toe.
+a.	A heading should say whether it is X’s or O’s turn and change with each move made.
+b.	Create a tic-tac-toe grid using your HTML element of choice. When a cell in the grid is clicked, an X or O should appear in that spot depending on whose turn it is.
+c.	A button should be available to clear the grid and restart the game.
+d.	When a player has won, or the board is full and the game results in a draw, a Bootstrap banner should appear across the screen announcing the winner.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FESD FET Week 5</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+    <div class="container-fluid bg-dark text-light">
+        <h5>FESD FET Week 5 Instructions</h5>
+            <h6>
+                <ol type="1">
+                    <li>Using any of the tools you’ve worked with so far, create a game of tic-tac-toe.
+                        <ol type="a">
+                            <li>A heading should say whether it is X’s or O’s
+                                 turn and change with each move made.</li>
+                            <li>Create a tic-tac-toe grid using your HTML element of choice.
+                                When a cell in the grid is clicked, an X or O should appear in
+                                that spot depending on whose turn it is.</li>
+                            <li>A button should be available to clear the grid and restart the game.</li>
+                            <li>When a player has won, or the board is full and the game results
+                                in a draw, a Bootstrap banner should appear across the screen
+                                announcing the winner.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </h6>
+    </div>
+
+    <hr>
+    <div class='container'>
+        <div class="row">
+            <div class="col-sm">                
+                <h1 id='heading' class='text-center'></h1>               
+                <h4 id='instruction' class='text-center'>Click a cell to mark your spot</h4>
+            </div>
+        </div>
+        <div class='row justify-content-center'>
+            <table id='my-table' class='table table-bordered table-dark text-center w-auto'>
+                <tr style='height:100px'>
+                    <td id='cell00' class='align-middle' style='width:100px'><!--&nbsp required to instantiate text-->
+                        <p id='mark00' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                    <td id='cell01' class='align-middle' style='width:100px'>
+                        <p id='mark01' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                    <td id='cell02' class='align-middle' style='width:100px'>
+                        <p id='mark02' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                </tr>
+                <tr style='height:100px'>
+                    <td id='cell10' class='align-middle' style='width:100px'>
+                        <p id='mark10' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                    <td id='cell11' class='align-middle' style='width:100px'>
+                        <p id='mark11' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                    <td id='cell12' class='align-middle' style='width:100px'>
+                        <p id='mark12' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                </tr>
+                <tr style='height:100px'>
+                    <td id='cell20' class='align-middle' style='width:100px'>
+                        <p id='mark20' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                    <td id='cell21' class='align-middle' style='width:100px'>
+                        <p id='mark21' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                    <td id='cell22' class='align-middle' style='width:100px'>
+                        <p id='mark22' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
+                    </td>
+                </tr>
+            </table>
+        </div>        
+        <div class="row">
+            <div class="col-sm text-center">                              
+                <button id='resetButton' class='btn btn-dark' type='button' style='width:300px'></button>
+                <!-- <button class='btn btn-warning'>Some text</button> -->
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div id="append-here" class="col-sm">
+
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col'></div>
+            <div class='col'></div>
+            <div class='col'></div>
+        </div>
+        <div class='row'>
+            <div class='col'></div>
+            <div class='col'></div>
+            <div class='col'></div>
+        </div>
+        <div class='row'>
+            <div class='col'></div>
+            <div class='col'></div>
+            <div class='col'></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <input type="text">
+    <p id='test'>Hello World</p>
+    <div class='my-class'>Div</div>
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ul>
+    
+    <script src="index.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="app.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+</body>
+</html>
