@@ -19,6 +19,42 @@ d.	When a player has won, or the board is full and the game results in a draw, a
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FESD FET Week 5</title>
+    <!-- <style>//Used for the cell selecting function in app.js
+        body {
+        font-family: arial, sans-serif;
+        font-size: 14px;
+        }
+
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td,
+        th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        th {
+        background-color: #ccd;
+        }
+
+        tr:nth-child(even) {
+        background-color: #ecf6fc;
+        }
+
+        tr:nth-child(odd) {
+        background-color: #ddeedd;
+        }
+
+        .highlight {
+        background-color: Yellow;
+        color: Green;
+        }
+    </style> -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
@@ -53,9 +89,9 @@ d.	When a player has won, or the board is full and the game results in a draw, a
             </div>
         </div>
         <div class='row justify-content-center'>
-            <table id='my-table' class='table table-bordered table-dark text-center w-auto'>
+            <table id='my-table tblData' class='table table-bordered table-dark text-center w-auto'>
                 <tr style='height:100px'>
-                    <td id='cell00' class='align-middle' style='width:100px'><!--&nbsp required to instantiate text-->
+                    <td id='cell00' class='align-middle' style='width:100px'>
                         <p id='mark00' style='font-size:90px;margin-top:-40px;margin-bottom:-35px'></p>
                     </td>
                     <td id='cell01' class='align-middle' style='width:100px'>
@@ -88,6 +124,7 @@ d.	When a player has won, or the board is full and the game results in a draw, a
                     </td>
                 </tr>
             </table>
+            <!-- <span id="spnText"></span>//Used for the function to select cells -->
         </div>        
         <div class="row">
             <div class="col-sm text-center">                              

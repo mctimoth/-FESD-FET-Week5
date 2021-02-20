@@ -53,6 +53,21 @@ let mark = 'X';
 let move = 0;
 let gameOver = false;
 
+//The following code should allow for a single function to click any of the
+//nine cells.  It also requires the css code listed in (but commented out)
+//in the <style> section of <head> in index.html
+// jQuery(function() {
+//   $("#tblDatatr:has(td)").on('mouseover', function(e) {
+//   $(this).css("cursor", "pointer");
+//   });
+//   $("#tblDatatr:has(td)").on('click', function(e) {
+//   $("#tblData td").removeClass("highlight");
+//   var clickedCell= $(e.target).closest("td");
+//   clickedCell.addClass("highlight");
+//   $("#spnText").html(
+//   'Clicked table cell value is: <b> ' + clickedCell.text() + '</b>');
+//   });
+//  });
 
   cell00.on('click', function() {
     checkMarkState(mark00);
@@ -99,28 +114,36 @@ function checkMarkState(markxx) {
         setHeadding('play');
         move++;
         //win is not possible unitl fifth or later move
-      } else if (move >= 4 && move <= 8) {
+      } else if (move >= 4 && move <= 7) {
         markCell(markxx);
-        checkForWin();
-        changeMark();
-        setHeadding('play');
-        move++;
-      } /* else if (move == 8) {
+        if (checkForWin()) {
+          setHeadding('win');
+          gameOver = true;
+        } else {
+          changeMark();
+          setHeadding('play');
+          move++;
+        }
+      } else if (move == 8) {
         markCell(markxx);
-        checkForWin();
-        setHeadding('play');
-      } */
+        if (checkForWin()) {
+          setHeadding('win');
+          gameOver = true;
+        } else {
+          setHeadding('tie');
+          gameOver = true;
+        }
+      }
     } else alert('Cell is occupied!');
   }
 }
 
 //function to set any cell to any mark
 function markCell(cell) {
-    cell.text(mark);
+  cell.text(mark);
 }
 
 function changeMark() {
-  //change mark
   if (mark == 'X') {
     mark = 'O';
   } else if (mark == 'O') {
@@ -139,10 +162,8 @@ function checkForWin() {
     (mark00.text() == mark && mark11.text() == mark && mark22.text() == mark) ||//top=left to bottom-right diagonal
     (mark20.text() == mark && mark11.text() == mark && mark02.text() == mark)//bottom-left to top-right diagonal    
     ) { 
-      setHeadding('win');
-      gameOver = true;
-    } else setHeadding('win');
-      gameOver = true;;
+      return true;
+    } else return false;
 }
 
 function setHeadding(option) {
@@ -150,6 +171,8 @@ function setHeadding(option) {
     heading.text(`${mark} - Your Turn!`);
   } else if (option == 'win') {
     heading.text(`${mark}'s win!`);
+  } else if (option == 'tie') {
+    heading.text('Tie Game!');
   }
 }
 
